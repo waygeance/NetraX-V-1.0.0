@@ -6,6 +6,7 @@ import 'package:flutter_tts/flutter_tts.dart'; // Import the flutter_tts package
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final cameras = await availableCameras();
@@ -64,24 +65,24 @@ class _CameraPreviewScreenState extends State<CameraPreviewScreen> {
       final image = await _controller.takePicture();
       final inputImage = InputImage.fromFilePath(image.path);
 
-      // Initialize the text recognizer
-      final textRecognizer = GoogleMlKit.vision.textRecognizer();
+      // Initialize the text recognizer with Devanagari script
+      final textRecognizer = TextRecognizer(script: TextRecognitionScript.devanagiri);
       final recognizedText = await textRecognizer.processImage(inputImage);
 
       // Collect the recognized text
-      String fullText = '';
-      for (TextBlock block in recognizedText.blocks) {
-        fullText += block.text + ' ';
-      }
+      String fullText = recognizedText.text;
 
       // Print the recognized text to the console
       print(fullText);
 
-      // Convert text to speech
+      // Set the TTS language to Hindi
+      await flutterTts.setLanguage("hi-IN");
+
+      // Convert text to speech in Hindi
       await flutterTts.speak(fullText);
 
       // Clean up resources
-      textRecognizer.close();
+      await textRecognizer.close();
     } catch (e) {
       print("Error recognizing text: $e");
     }
