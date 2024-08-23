@@ -1,16 +1,12 @@
-# netrax
+NetraX
 
-First App
+An innovative app designed to assist blind and visually impaired individuals by leveraging the power of Google ML Kit and Flutter's Text-to-Speech (TTS) functionality. With real-time text recognition and seamless audio output, NetraX enables users to "see" through sound, making everyday tasks more accessible and empowering.
 
-## Getting Started
+Key Features:
 
-This project is a starting point for a Flutter application.
+Text Recognition: Uses Google ML Kit for real-time text detection and recognition.
+Text-to-Speech: Converts recognized text into spoken words using Flutter's TTS.
+User-Friendly UI: Designed with accessibility in mind, making it easy to use for visually impaired users.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Helping people navigate the world, one step at a time.
